@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Co-Loading With Stand</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="/halfmoon-variables.min.css" crossorigin="anonymous" rel="stylesheet" />
+	<link href="/halfmoon-config.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css" rel="stylesheet" />
+	<script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js" crossorigin="anonymous" defer></script>
+</head>
+<body class="dark-mode">
+	<div class="page-wrapper with-navbar">
+		<nav class="navbar">
+			<div class="container-xl">
+				<a class="navbar-brand" href="/">Stand</a>
+				<ul class="navbar-nav d-none d-sm-flex">
+					<li class="nav-item"><a class="nav-link" href="/">GTA V</a></li>
+					<li class="nav-item"><a class="nav-link" href="/vpn/">VPN</a></li>
+					<li class="nav-item active"><a class="nav-link" href="/help/">Help</a></li>
+				</ul>
+				<div class="navbar-content ml-auto d-none d-sm-flex">
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link" href="/account/">Account</a></li>
+					</ul>
+				</div>
+				<div class="navbar-content ml-auto d-sm-none">
+					<div class="dropdown">
+						<button class="btn" data-toggle="dropdown" type="button"><i class="fa fa-bars"></i></button>
+						<div class="dropdown-menu dropdown-menu-right">
+							<a href="/" class="dropdown-item">GTA V</a>
+							<a href="/vpn/" class="dropdown-item">VPN</a>
+							<a href="/help/" class="dropdown-item">Help</a>
+							<a href="/account/" class="dropdown-item">Account</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<div class="content-wrapper">
+			<div class="container-xl">
+				<div class="content">
+					<h1>Co-Loading With Stand</h1>
+					<h2>How to co-load</h2>
+					<p>Co-loading with Stand is really simple: In general, you just inject your other menu(s) of choice first, and then use the Launchpad to inject Stand.</p>
+					<h2>Menus that have been tested</h2>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Menu</th>
+								<th>Load Order</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>2Take1Menu</td>
+								<td>Doesn't matter</td>
+							</tr>
+							<tr>
+								<td>Cherax</td>
+								<td>Stand last</td>
+							</tr>
+							<tr>
+								<td>Nightfall</td>
+								<td>Doesn't matter</td>
+							</tr>
+							<tr>
+								<td>Midnight</td>
+								<td>Stand last</td>
+							</tr>
+							<tr>
+								<td>Phantom-X</td>
+								<td>Stand last</td>
+							</tr>
+							<tr>
+								<td>Dis2rbed</td>
+								<td>Stand last</td>
+							</tr>
+							<!--<tr>
+								<td>X-Force</td>
+								<td>Stand last</td>
+							</tr>-->
+						</tbody>
+					</table>
+					<p>You won't have any issues <i>co-loading</i> external menus, like Kiddion's Modest.</p>
+					<h2>Limitations when co-loading</h2>
+					<p>There is no consensus among mod menu developers on how to deal with other mod menus, and some even seem to ignore/deny the existence of others. As a result of that, most mod menus won't even load if injected after another one. Stand will try its best to mod an already-modded game, but there still is a handful of features that might not work in Stand, and you should use the first menu for, instead:</p>
+					<ul>
+						<li>Vehicle Indestructible (aka. "Vehicle God Mode")</li>
+						<li>Protecting against and using crash models</li>
+					</ul>
+					<h3>Unloading when co-loading</h3>
+					<p>If you want to unload menus in a co-loading setup, you should unload them in reverse loading order, e.g. if you loaded Stand last, it should be unloaded first, otherwise you risk breaking other menus.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

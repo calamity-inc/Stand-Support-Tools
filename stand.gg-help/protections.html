@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Stand Protections Guide</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="/halfmoon-variables.min.css" crossorigin="anonymous" rel="stylesheet" />
+	<link href="/halfmoon-config.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css" rel="stylesheet" />
+	<script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js" crossorigin="anonymous" defer></script>
+</head>
+<body class="dark-mode">
+	<div class="page-wrapper with-navbar">
+		<nav class="navbar">
+			<div class="container-xl">
+				<a class="navbar-brand" href="/">Stand</a>
+				<ul class="navbar-nav d-none d-sm-flex">
+					<li class="nav-item"><a class="nav-link" href="/">GTA V</a></li>
+					<li class="nav-item"><a class="nav-link" href="/vpn/">VPN</a></li>
+					<li class="nav-item active"><a class="nav-link" href="/help/">Help</a></li>
+				</ul>
+				<div class="navbar-content ml-auto d-none d-sm-flex">
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link" href="/account/">Account</a></li>
+					</ul>
+				</div>
+				<div class="navbar-content ml-auto d-sm-none">
+					<div class="dropdown">
+						<button class="btn" data-toggle="dropdown" type="button"><i class="fa fa-bars"></i></button>
+						<div class="dropdown-menu dropdown-menu-right">
+							<a href="/" class="dropdown-item">GTA V</a>
+							<a href="/vpn/" class="dropdown-item">VPN</a>
+							<a href="/help/" class="dropdown-item">Help</a>
+							<a href="/account/" class="dropdown-item">Account</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<div class="content-wrapper">
+			<div class="container-xl">
+				<div class="content">
+					<h1>Stand Protections Guide</h1>
+					<p>This guide will help you understand Stand's protection settings and how to get the most out of them.</p>
+					<h2>Default Configuration</h2>
+					<p>Stand's default protections configuration blocks most things a modder might throw at you, as long as blocking them won't break missions.</p>
+					<p>Stand also detects, logs, and attempts to fix some bad states the game might be in — some of these behaviours can be configured, like the Script Error Recovery.</p>
+					<h2>For Your Consideration</h2>
+					<p>As mentioned above, Stand will not block events that are used in missions by default, but they might still be abused by modders. Here's some of these for your consideration:</p>
+					<ul>
+						<li><b>Events > Apartment Invite</b> — Consider blocking when not doing missions.</li>
+						<li><b>Events > Force Camera Forward</b> — Consider blocking when not doing missions.</li>
+						<li><b>Events > Raw Network Events > Explosion</b> — They're everywhere, and they look amazing. Without explosions, GTA Online just looks weird, so you shouldn't block this, but consider notifications so you can pinpoint the source of <i>unusual</i> explosions, including blamed kills.</li>
+						<li><b>Events > Raw Network Events > NETWORK_PTFX_EVENT</b> — Used for the orbital cannon's explosion in freemode or sparks on your drill in missions, but can also be abused by modders to fill your screen and make you lag. Consider notifications and/or blocking.</li>
+					</ul>
+					<h3>Pool Sizes</h3>
+					<p>There are some crashes that rely on overflowing your pools. This is a very inelegant way of crashing the game, so it's very rare. Nevertheless, you might want to have <b>Game > Early Inject Enhancements > Game Pools Size Multiplier</b> set to <b>2.0</b>, which doesn't require you to modify the memory pool size. Just be sure to always early-inject Stand.</p>
+					<h2>On Raw Network Events</h2>
+					<p>This is, as the name implies, a very "raw" section, and it is really easy to break the game by blindly blocking everything. With that in mind, here's some things you should not touch, and why you shouldn't touch them.</p>
+					<ul>
+						<li><b>REQUEST_CONTROL_EVENT</b> — Blocking this will cause people around you to be unable to drive their vehicles, and if those people are modders, expect kicks and crashes coming your way. Take a look at <b>Events > Vehicle Takeover</b>, instead.</li>
+						<li><b>NETWORK_CHECK_EXE_SIZE_EVENT</b> — Blocking this will make you unable to join sessions.</li>
+						<li><b>KICK_VOTES_EVENT</b> — More intelligent reactions can be found in <b>Online > Reactions > Vote Kick Reactions</b>.</li>
+					</ul>
+					<p>And just in general, <b>don't block it if you don't understand the impact of it</b>. Instead, consider enabling notifications on it, seeing what it correlates with, and only when you fully grasp it and decide you don't want it, should you block it.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
