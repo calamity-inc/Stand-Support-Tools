@@ -21,6 +21,8 @@ $this->on(function(MessageCreateEvent $event)
 		$cont = str_replace("unable to", "can't", $cont);
 		$cont = str_replace(" 2 ", " to ", $cont);
 		$cont = str_replace(" too ", " to ", $cont);
+		$cont = str_replace("amke", "make", $cont);
+		$cont = str_replace("limet", "limit", $cont);
 		$relevant_answers = [];
 
 		$res_tuners_rep = "Online > Quick Progress > LS Car Meet > Set Reputation Level";
@@ -55,14 +57,22 @@ $this->on(function(MessageCreateEvent $event)
 			"use stand with arrow keys" => $res_keyboardscheme,
 			"change the navigation keys" => $res_keyboardscheme,
 			"keybinds for controller" => "Stand > Settings > Input > Controller Input Scheme",
+			"spawn cars maxed out" => "Vehicle > Spawner > Tune Spawned Vehicles > Fully",
+			"how do i enable protections" => "Protections are enabled by default. Visit https://std.gg/protex for more information.",
+			"unlock ls customs colors" => "Online > Quick Progress > Unlocks > Unlock Vehicle Customisations",
+
 			"how do i gift vehicles" => $res_gift,
 			"gift vehicles with stand" => $res_gift,
+
 			"best vehicle to sell" => $res_gift_veh,
 			"best vehicle to spawn and sell" => $res_gift_veh,
 			"best vehicle to spawn to sell" => $res_gift_veh,
 			"best car to sell" => $res_gift_veh,
 			"best car to spawn and sell" => $res_gift_veh,
 			"best car to spawn to sell" => $res_gift_veh,
+
+			"sell limit if i gift cars" => "- Not more than 2 sales per 2 real-world hours.\n- Not more than 7 sales per 30 real-world hours.",
+
 			"difference between basic and regular" => $res_editions,
 			"difference between regular and basic" => $res_editions,
 			"difference between regular and ultimate" => $res_editions,
@@ -75,12 +85,18 @@ $this->on(function(MessageCreateEvent $event)
 			"differences between ultimate and regular" => $res_editions,
 			"differences between basic and ultimate" => $res_editions,
 			"differences between ultimate and basic" => $res_editions,
+
 			"money options" => $res_money,
+			/* how (do I use the menu) */ "to get money" => $res_money,
+			/* how (do I use the menu) */ "to make money" => $res_money,
+			"get money with stand" => $res_money,
 			"make money with stand" => $res_money,
+			"money method recommendations" => $res_money,
 			"recoveries on stand" => $res_money,
 			"do recoveries with stand" => $res_money,
-			"spawn cars maxed out" => "Vehicle > Spawner > Tune Spawned Vehicles > Fully",
-			"how do i enable protections" => "Protections are enabled by default. Visit https://std.gg/protex for more information.",
+
+			"how do i rank up" => "At rank 120, the last item is unlocked. At rank 200, your health regen speed is maxed out.",
+			"what rank unlocks everything" => "At rank 120, the last item is unlocked. At rank 200, your health regen speed is maxed out.",
 		];
 
 		foreach($qa_data as $trigger => $response)
