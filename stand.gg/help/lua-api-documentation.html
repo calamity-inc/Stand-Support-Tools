@@ -261,10 +261,11 @@
 <p>Your <code>on_change</code> function will be called with the string and click type.</p>
 <!-- menu.colour -->
 <h5><i class="text-success">CommandRef|CommandUniqPtr</i> menu.<span class="text-primary">colour</span>(<i class="text-success">CommandRef</i> <i class="text-warning">parent</i>, <i class="text-success">Label</i> <i class="text-warning">menu_name</i>, <i class="text-success">table&lt;any, string&gt;</i> <i class="text-warning">command_names</i>, <i class="text-success">Label</i> <i class="text-warning">help_text</i>, <i class="text-success">Colour</i> <i class="text-warning">default</i>, <i class="text-success">bool</i> <i class="text-warning">transparency</i>, <i class="text-success">function</i> <i class="text-warning">on_change</i>)</h5>
-<p>Your <code>on_change</code> function will be called with Colour and click type.</p>
-<!-- menu.colour alt -->
 <h5><i class="text-success">CommandRef|CommandUniqPtr</i> menu.<span class="text-primary">colour</span>(<i class="text-success">CommandRef</i> <i class="text-warning">parent</i>, <i class="text-success">Label</i> <i class="text-warning">menu_name</i>, <i class="text-success">table&lt;any, string&gt;</i> <i class="text-warning">command_names</i>, <i class="text-success">Label</i> <i class="text-warning">help_text</i>, <i class="text-success">number</i> <i class="text-warning">default_r</i>, <i class="text-success">number</i> <i class="text-warning">default_g</i>, <i class="text-success">number</i> <i class="text-warning">default_b</i>, <i class="text-success">number</i> <i class="text-warning">default_a</i>, <i class="text-success">bool</i> <i class="text-warning">transparency</i>, <i class="text-success">function</i> <i class="text-warning">on_change</i>)</h5>
 <p>Your <code>on_change</code> function will be called with Colour and click type.</p>
+<pre><code class="language-pluto">menu.my_root():colour(lang.find_builtin("Colour"), {}, "", 1.0, 0.0, 1.0, 1.0, false, function(colour, click_type)
+    -- ...
+end)</code></pre>
 <!-- menu.rainbow -->
 <h5><i class="text-success">CommandRef|CommandUniqPtr</i> menu.<span class="text-primary">rainbow</span>(<i class="text-success">CommandRef</i> <i class="text-warning">colour_command</i>)</h5>
 <p>Creates a rainbow slider for the given colour command. This should be called right after creating the colour command.</p>
