@@ -144,6 +144,7 @@
     <li><code>:text_input(...)</code> — shorthand for menu.text_input</li>
     <li><code>:colour(...)</code> — shorthand for menu.colour</li>
     <li><code>:rainbow(...)</code> — shorthand for menu.rainbow</li>
+    <li><code>:inline_rainbow(...)</code> — shorthand for menu.inline_rainbow</li>
     <li><code>:divider(...)</code> — shorthand for menu.divider</li>
     <li><code>:readonly(...)</code> — shorthand for menu.readonly</li>
     <li><code>:hyperlink(...)</code> — shorthand for menu.hyperlink</li>
@@ -269,6 +270,9 @@ end)</code></pre>
 <!-- menu.rainbow -->
 <h5><i class="text-success">CommandRef|CommandUniqPtr</i> menu.<span class="text-primary">rainbow</span>(<i class="text-success">CommandRef</i> <i class="text-warning">colour_command</i>)</h5>
 <p>Creates a rainbow slider for the given colour command. This should be called right after creating the colour command.</p>
+<!-- menu.inline_rainbow -->
+<h5><i class="text-success">CommandRef|CommandUniqPtr</i> menu.<span class="text-primary">inline_rainbow</span>(<i class="text-success">CommandRef</i> <i class="text-warning">colour_command</i>)</h5>
+<p>Creates a rainbow slider inside of the given colour command. This should be called right after creating the colour command.</p>
 <!-- menu.divider -->
 <h5><i class="text-success">CommandRef|CommandUniqPtr</i> menu.<span class="text-primary">divider</span>(<i class="text-success">CommandRef</i> <i class="text-warning">parent</i>, <i class="text-success">Label</i> <i class="text-warning">menu_name</i>)</h5>
 <!-- menu.readonly -->
@@ -1266,6 +1270,8 @@ tc = util.new_toast_config(menu.my_root(), TOAST_DEFAULT)</code></pre>
 <!-- util.set_waypoint -->
 <h5><i class="text-success">void</i> util.<span class="text-primary">set_waypoint</span>(<i class="text-success">Vector3</i> <i class="text-warning">pos</i>)</h5>
 <p>An extended version of <code>HUD.SET_NEW_WAYPOINT</code> that includes the Z axis for features like Stand's AR Waypoint.</p>
+<!-- util.set_cam_quaternion -->
+<h5><i class="text-success">void</i> util.<span class="text-primary">set_cam_quaternion</span>(<i class="text-success">int</i> <i class="text-warning">cam</i>, <i class="text-success">number</i> <i class="text-warning">x</i>, <i class="text-success">number</i> <i class="text-warning">y</i>, <i class="text-success">number</i> <i class="text-warning">z</i>, <i class="text-success">number</i> <i class="text-warning">w</i>)</h5>
 
 <h3><a name="v3-functions" href="#v3-functions">§</a> V3 Functions</h3>
 <!-- v3.new -->
