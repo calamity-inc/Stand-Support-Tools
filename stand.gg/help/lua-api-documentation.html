@@ -116,6 +116,7 @@
     <li><code>:removeHandler(...)</code> — shorthand for menu.remove_handler</li>
     <li><code>:getState()</code> — shorthand for menu.get_state</li>
     <li><code>:getDefaultState()</code> — shorthand for menu.get_default_state</li>
+    <li><code>:setState(...)</code> — shorthand for menu.set_state</li>
     <li><code>:applyDefaultState()</code> — shorthand for menu.apply_default_state</li>
     <li><code>:setListActionOptions(...)</code> — shorthand for menu.set_list_action_options</li>
     <li><code>:setTextsliderOptions(...)</code> — shorthand for menu.set_textslider_options</li>
@@ -456,6 +457,8 @@ end)</code></pre>
 <h5><i class="text-success">string</i> menu.<span class="text-primary">get_state</span>(<i class="text-success">CommandRef</i> <i class="text-warning">command</i>)</h5>
 <!-- menu.get_default_state -->
 <h5><i class="text-success">string</i> menu.<span class="text-primary">get_default_state</span>(<i class="text-success">CommandRef</i> <i class="text-warning">command</i>)</h5>
+<!-- menu.set_state -->
+<h5><i class="text-success">string</i> menu.<span class="text-primary">set_state</span>(<i class="text-success">CommandRef</i> <i class="text-warning">command</i>, <i class="text-success">string</i> <i class="text-warning">state</i>)</h5>
 <!-- menu.apply_default_state -->
 <h5><i class="text-success">string</i> menu.<span class="text-primary">apply_default_state</span>(<i class="text-success">CommandRef</i> <i class="text-warning">command</i>)</h5>
 <!-- menu.set_menu_name -->
@@ -841,6 +844,8 @@ end)</code></pre>
 <!-- entities.set_can_migrate -->
 <h5><i class="text-success">void</i> entities.<span class="text-primary">set_can_migrate</span>(<i class="text-success">int</i> <i class="text-warning">handle_or_ptr</i>, <i class="text-success">bool</i> <i class="text-warning">can_migrate</i>)</h5>
 <p>Prevents ambient ownership changes so that only explicit requests will be processed.</p>
+<!-- entities.get_can_migrate -->
+<h5><i class="text-success">bool</i> entities.<span class="text-primary">get_can_migrate</span>(<i class="text-success">int</i> <i class="text-warning">handle_or_ptr</i>)</h5>
 <!-- entities.give_control -->
 <h5><i class="text-success">void</i> entities.<span class="text-primary">give_control</span>(<i class="text-success">int</i> <i class="text-warning">handle_or_ptr</i>, <i class="text-success">int</i> <i class="text-warning">player</i>)</h5>
 <!-- entities.vehicle_get_handling -->
