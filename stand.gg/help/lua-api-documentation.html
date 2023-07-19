@@ -73,7 +73,7 @@
 <h5>Language</h5>
 <p>Stand uses <a href="https://plutolang.github.io/docs/Introduction" target="_blank">Pluto</a> which adds new features, improvements, and optimisations while being compatible with existing Lua code.</p>
 <p>If nothing else, you should at least get <a href="https://github.com/PlutoLang/Syntax-Highlighting" target="_blank">Pluto Syntax Highlighting</a> so you can properly view .pluto files.</p>
-<p>Compatibility mode is currently enabled for 'new', 'class' & 'parent' so you'll have to use the 'pluto_' variants.</p>
+<p>Compatibility mode is currently enabled for 'new' & 'class' so you'll have to use the 'pluto_' variants.</p>
 <h5>Bindings</h5>
 <p>Stand also provides <a href="https://github.com/calamity-inc/Soup-Lua-Bindings/blob/main/LUA_API.md#soup-lua-bindings">Soup Lua Bindings</a>.</p>
 <h5>Examples</h5>
@@ -722,6 +722,10 @@ end)</code></pre>
     end
     util.toast(players.get_name(p)..": "..name)
 end)</code></pre>
+<!-- players.teleport_2d -->
+<h5><i class="text-success">int</i> players.<span class="text-primary">teleport_2d</span>(<i class="text-success">int</i> <i class="text-warning">player_id</i>, <i class="text-success">number</i> <i class="text-warning">x</i>, <i class="text-success">number</i> <i class="text-warning">y</i>)</h5>
+<!-- players.teleport_3d -->
+<h5><i class="text-success">int</i> players.<span class="text-primary">teleport_3d</span>(<i class="text-success">int</i> <i class="text-warning">player_id</i>, <i class="text-success">number</i> <i class="text-warning">x</i>, <i class="text-success">number</i> <i class="text-warning">y</i>, <i class="text-success">number</i> <i class="text-warning">z</i>)</h5>
 
 <h3><a name="entities-functions" href="#entities-functions">§</a> Entities Functions</h3>
 <!-- entities.create_ped -->
@@ -1079,6 +1083,8 @@ util.ujoaat("stand") --> 3464459344</code></pre>
 <h5><i class="text-success">bool</i> util.<span class="text-primary">is_this_model_an_object</span>(<i class="text-success">int|string</i> <i class="text-warning">model</i>)</h5>
 <!-- util.is_this_model_a_submarine -->
 <h5><i class="text-success">bool</i> util.<span class="text-primary">is_this_model_a_submarine</span>(<i class="text-success">int|string</i> <i class="text-warning">model</i>)</h5>
+<!-- util.is_this_model_a_submarine_car -->
+<h5><i class="text-success">bool</i> util.<span class="text-primary">is_this_model_a_submarine_car</span>(<i class="text-success">int|string</i> <i class="text-warning">model</i>)</h5>
 <!-- util.is_this_model_a_trailer -->
 <h5><i class="text-success">bool</i> util.<span class="text-primary">is_this_model_a_trailer</span>(<i class="text-success">int|string</i> <i class="text-warning">model</i>)</h5>
 <!-- util.get_vehicles -->
@@ -1286,6 +1292,12 @@ tc = util.new_toast_config(menu.my_root(), TOAST_DEFAULT)</code></pre>
 <h5><i class="text-success">number, number, number</i> util.<span class="text-primary">rgb2hsv</span>(<i class="text-success">number</i> <i class="text-warning">r</i>, <i class="text-success">number</i> <i class="text-warning">g</i>, <i class="text-success">number</i> <i class="text-warning">b</i>)</h5>
 <!-- util.hsv2rgb -->
 <h5><i class="text-success">number, number, number</i> util.<span class="text-primary">hsv2rgb</span>(<i class="text-success">number</i> <i class="text-warning">h</i>, <i class="text-success">number</i> <i class="text-warning">s</i>, <i class="text-success">number</i> <i class="text-warning">v</i>)</h5>
+<!-- util.calculate_luminance -->
+<h5><i class="text-success">number</i> util.<span class="text-primary">calculate_luminance</span>(<i class="text-success">number</i> <i class="text-warning">r</i>, <i class="text-success">number</i> <i class="text-warning">g</i>, <i class="text-success">number</i> <i class="text-warning">b</i>)</h5>
+<!-- util.calculate_contrast -->
+<h5><i class="text-success">number</i> util.<span class="text-primary">calculate_contrast</span>(<i class="text-success">number</i> <i class="text-warning">r1</i>, <i class="text-success">number</i> <i class="text-warning">g1</i>, <i class="text-success">number</i> <i class="text-warning">b1</i>, <i class="text-success">number</i> <i class="text-warning">r2</i>, <i class="text-success">number</i> <i class="text-warning">g2</i>, <i class="text-success">number</i> <i class="text-warning">b2</i>)</h5>
+<!-- util.is_contrast_sufficient -->
+<h5><i class="text-success">bool</i> util.<span class="text-primary">is_contrast_sufficient</span>(<i class="text-success">number</i> <i class="text-warning">r1</i>, <i class="text-success">number</i> <i class="text-warning">g1</i>, <i class="text-success">number</i> <i class="text-warning">b1</i>, <i class="text-success">number</i> <i class="text-warning">r2</i>, <i class="text-success">number</i> <i class="text-warning">g2</i>, <i class="text-success">number</i> <i class="text-warning">b2</i>)</h5>
 <!-- util.set_waypoint -->
 <h5><i class="text-success">void</i> util.<span class="text-primary">set_waypoint</span>(<i class="text-success">Vector3</i> <i class="text-warning">pos</i>)</h5>
 <p>An extended version of <code>HUD.SET_NEW_WAYPOINT</code> that includes the Z axis for features like Stand's AR Waypoint.</p>
