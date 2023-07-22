@@ -598,10 +598,16 @@ end)</code></pre>
 <!-- players.get_rockstar_id_2 -->
 <!--<h5><i class="text-success">int</i> players.<span class="text-primary">get_rockstar_id_2</span>(<i class="text-success">int</i> <i class="text-warning">player_id</i>)</h5>
 <p>This value might be spoofed by <b>soft</b> RID spoofing.</p> -->
+<!-- players.get_ip -->
+<h5><i class="text-success">int</i> players.<span class="text-primary">get_ip</span>(<i class="text-success">int</i> <i class="text-warning">player_id</i>)</h5>
+<!-- players.get_port -->
+<h5><i class="text-success">int</i> players.<span class="text-primary">get_port</span>(<i class="text-success">int</i> <i class="text-warning">player_id</i>)</h5>
 <!-- players.get_connect_ip -->
 <h5><i class="text-success">int</i> players.<span class="text-primary">get_connect_ip</span>(<i class="text-success">int</i> <i class="text-warning">player_id</i>)</h5>
+<p>Returns <code>4294967295</code> if the player is not connected via P2P.</p>
 <!-- players.get_connect_port -->
 <h5><i class="text-success">int</i> players.<span class="text-primary">get_connect_port</span>(<i class="text-success">int</i> <i class="text-warning">player_id</i>)</h5>
+<p>Returns <code>0</code> if the player is not connected via P2P.</p>
 <!-- players.are_stats_ready -->
 <h5><i class="text-success">bool</i> players.<span class="text-primary">are_stats_ready</span>(<i class="text-success">int</i> <i class="text-warning">player_id</i>)</h5>
 <!-- players.get_rank -->
