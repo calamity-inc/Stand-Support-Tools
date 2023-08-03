@@ -90,6 +90,7 @@
     <li><code>.help_text</code> — shorthand for menu.get_help_text/menu.set_help_text</li>
     <li><code>.name_for_config</code> — shorthand for menu.get_name_for_config/menu.set_name_for_config</li>
 
+    <li><code>:getPhysical()</code> — shorthand for menu.get_physical</li>
     <li><code>:equals(CommandAny)</code> — returns a boolean that indicates if this CommandAny refers to the same command as another CommandAny instance</li>
 </ul>
 <h5><i class="text-success">CommandRef</i></h5>
@@ -109,6 +110,7 @@
     <li><code>:getType()</code> — shorthand for menu.get_type</li>
     <li><code>:getChildren()</code> — shorthand for menu.get_children</li>
     <li><code>:getFocus()</code> — shorthand for menu.list_get_focus</li>
+    <li><code>:getFocusPhysical()</code> — shorthand for menu.list_get_focus_physical</li>
     <li><code>:trigger()</code> — shorthand for menu.trigger_command</li>
     <li><code>:onTickInViewport(...)</code> — shorthand for menu.on_tick_in_viewport</li>
     <li><code>:onFocus(...)</code> — shorthand for menu.on_focus</li>
@@ -379,6 +381,8 @@ end)</code></pre>
 <h5><i class="text-success">table&lt;int, CommandRef&gt;</i> menu.<span class="text-primary">get_children</span>(<i class="text-success">CommandRef</i> <i class="text-warning">list</i>)</h5>
 <!-- menu.list_get_focus -->
 <h5><i class="text-success">CommandRef</i> menu.<span class="text-primary">list_get_focus</span>(<i class="text-success">CommandRef</i> <i class="text-warning">list</i>)</h5>
+<!-- menu.list_get_focus_physical -->
+<h5><i class="text-success">CommandRef</i> menu.<span class="text-primary">list_get_focus_physical</span>(<i class="text-success">CommandRef</i> <i class="text-warning">list</i>)</h5>
 <!-- menu.collect_garbage -->
 <h5><i class="text-success">int</i> menu.<span class="text-primary">collect_garbage</span>()</h5>
 <p>Removes invalidated weakrefs from an internal vector. Stand does this automatically, but if you bulk-delete-or-replace commands, you might want to call this right after.</p>
@@ -424,6 +428,9 @@ end)</code></pre>
 <h5><i class="text-success">int</i> menu.<span class="text-primary">on_blur</span>(<i class="text-success">CommandRef</i> <i class="text-warning">command</i>, <i class="text-success">function</i> <i class="text-warning">callback</i>)</h5>
 <!-- menu.remove_handler -->
 <h5><i class="text-success">bool</i> menu.<span class="text-primary">remove_handler</span>(<i class="text-success">CommandRef</i> <i class="text-warning">command</i>, <i class="text-success">int</i> <i class="text-warning">handler_id</i>)</h5>
+<!-- menu.get_physical -->
+<h5><i class="text-success">Label</i> menu.<span class="text-primary">get_physical</span>(<i class="text-success">CommandRef|CommandUniqPtr</i> <i class="text-warning">command</i>)</h5>
+<p>If <code>command</code> points to a link, its target is returned. Otherwise, <code>command</code> is returned.</p>
 <!-- menu.get_menu_name -->
 <h5><i class="text-success">Label</i> menu.<span class="text-primary">get_menu_name</span>(<i class="text-success">CommandRef|CommandUniqPtr</i> <i class="text-warning">command</i>)</h5>
 <p>You might want to use <code>lang.get_string</code> on the return value.</p>
