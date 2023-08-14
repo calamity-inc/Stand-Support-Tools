@@ -607,14 +607,22 @@ end)</code></pre>
 <p>This value might be spoofed by <b>soft</b> RID spoofing.</p> -->
 <!-- players.get_ip -->
 <h5><i class="text-success">int</i> players.<span class="text-primary">get_ip</span>(<i class="text-success">int</i> <i class="text-warning">player_id</i>)</h5>
+<p>Returns <code>4294967295</code> if unknown.</p>
 <!-- players.get_port -->
 <h5><i class="text-success">int</i> players.<span class="text-primary">get_port</span>(<i class="text-success">int</i> <i class="text-warning">player_id</i>)</h5>
+<p>Returns <code>0</code> if unknown.</p>
 <!-- players.get_connect_ip -->
 <h5><i class="text-success">int</i> players.<span class="text-primary">get_connect_ip</span>(<i class="text-success">int</i> <i class="text-warning">player_id</i>)</h5>
 <p>Returns <code>4294967295</code> if the player is not connected via P2P.</p>
 <!-- players.get_connect_port -->
 <h5><i class="text-success">int</i> players.<span class="text-primary">get_connect_port</span>(<i class="text-success">int</i> <i class="text-warning">player_id</i>)</h5>
 <p>Returns <code>0</code> if the player is not connected via P2P.</p>
+<!-- players.get_lan_ip -->
+<h5><i class="text-success">int</i> players.<span class="text-primary">get_lan_ip</span>(<i class="text-success">int</i> <i class="text-warning">player_id</i>)</h5>
+<p>Returns <code>4294967295</code> if unknown.</p>
+<!-- players.get_lan_port -->
+<h5><i class="text-success">int</i> players.<span class="text-primary">get_lan_port</span>(<i class="text-success">int</i> <i class="text-warning">player_id</i>)</h5>
+<p>Returns <code>0</code> if unknown.</p>
 <!-- players.are_stats_ready -->
 <h5><i class="text-success">bool</i> players.<span class="text-primary">are_stats_ready</span>(<i class="text-success">int</i> <i class="text-warning">player_id</i>)</h5>
 <!-- players.get_rank -->
@@ -960,7 +968,7 @@ end)</code></pre>
 <!-- directx.get_client_size -->
 <h5><i class="text-success">number, number</i> directx.<span class="text-primary">get_client_size</span>()</h5>
 <!-- directx.get_text_size -->
-<h5><i class="text-success">number, number</i> directx.<span class="text-primary">get_text_size</span>(<i class="text-success">string</i> <i class="text-warning">text</i>, <i class="text-success">number</i> <i class="text-warning">scale</i> = <span class="text-danger">1.0</span>)</h5>
+<h5><i class="text-success">number, number</i> directx.<span class="text-primary">get_text_size</span>(<i class="text-success">string</i> <i class="text-warning">text</i>, <i class="text-success">number</i> <i class="text-warning">scale</i> = <span class="text-danger">1.0</span>, <i class="text-success">?userdata</i> <i class="text-warning">font</i> = <span class="text-danger">nil</span>)</h5>
 <p>Returns width and height.</p>
 <!-- directx.pos_hud_to_client -->
 <h5><i class="text-success">number, number</i> directx.<span class="text-primary">pos_hud_to_client</span>(<i class="text-success">number</i> <i class="text-warning">x</i>, <i class="text-success">number</i> <i class="text-warning">y</i>)</h5>
