@@ -306,7 +306,7 @@ end)</code></pre>
 <p>We highly recommend using <code>menu.list_select</code> instead of this, unless the options are really unimportant.</p>
 <p>Your <code>on_click</code> function will be called with the option's index, the option's value, and click_type as parameters.</p>
 <!-- menu.player_list_players_shortcut -->
-<h5><i class="text-success">CommandRef|CommandUniqPtr</i> menu.<span class="text-primary">player_list_players_shortcut</span>(<i class="text-success">CommandRef</i> <i class="text-warning">parent</i>, <i class="text-success">Label</i> <i class="text-warning">menu_name</i>, <i class="text-success">string</i> <i class="text-warning">command_name</i>)</h5>
+<h5><i class="text-success">CommandRef|CommandUniqPtr</i> menu.<span class="text-primary">player_list_players_shortcut</span>(<i class="text-success">CommandRef</i> <i class="text-warning">parent</i>, <i class="text-success">Label</i> <i class="text-warning">menu_name</i>, <i class="text-success">string</i> <i class="text-warning">command_name</i>, <i class="text-success">bool</i> <i class="text-warning">single_only</i> = <span class="text-danger">false</span>)</h5>
 <!-- menu.link -->
 <h5><i class="text-success">CommandRef|CommandUniqPtr</i> menu.<span class="text-primary">link</span>(<i class="text-success">CommandRef</i> <i class="text-warning">parent</i>, <i class="text-success">CommandRef</i> <i class="text-warning">target</i>, <i class="text-success">bool</i> <i class="text-warning">show_address_in_corner</i> = <span class="text-danger">false</span>)</h5>
 <!-- menu.apply_command_states -->
@@ -1326,6 +1326,21 @@ tc = util.new_toast_config(menu.my_root(), TOAST_DEFAULT)</code></pre>
 <p>An extended version of <code>HUD.SET_NEW_WAYPOINT</code> that includes the Z axis for features like Stand's AR Waypoint.</p>
 <!-- util.set_cam_quaternion -->
 <h5><i class="text-success">void</i> util.<span class="text-primary">set_cam_quaternion</span>(<i class="text-success">int</i> <i class="text-warning">cam</i>, <i class="text-success">number</i> <i class="text-warning">x</i>, <i class="text-success">number</i> <i class="text-warning">y</i>, <i class="text-success">number</i> <i class="text-warning">z</i>, <i class="text-success">number</i> <i class="text-warning">w</i>)</h5>
+<!-- util.get_screen_coord_from_world_coord_no_adjustment -->
+<h5><i class="text-success">bool</i> util.<span class="text-primary">get_screen_coord_from_world_coord_no_adjustment</span>(<i class="text-success">number</i> <i class="text-warning">fWorldX</i>, <i class="text-success">number</i> <i class="text-warning">fWorldY</i>, <i class="text-success">number</i> <i class="text-warning">fWorldZ</i>, <i class="text-success">number</i> <i class="text-warning">pOutScreenX</i>, <i class="text-success">number</i> <i class="text-warning">pOutScreenY</i>)</h5>
+<p>Alternative to <code>GRAPHICS.GET_SCREEN_COORD_FROM_WORLD_COORD</code> that does not do adjustments for multihead monitor configs.</p>
+<pre><code class="language-pluto">util.require_natives()
+
+util.create_tick_handler(function()
+    local pos = ENTITY.GET_ENTITY_COORDS(players.user_ped())
+
+    local v2 = memory.alloc(8)
+    if util.get_screen_coord_from_world_coord_no_adjustment(pos.x, pos.y, pos.z, v2, v2 + 4) then
+        util.draw_debug_text(memory.read_float(v2) .. ", " .. memory.read_float(v2 + 4))
+    else
+        util.draw_debug_text("Off-screen!")
+    end
+end)</code></pre>
 
 <h3><a name="v3-functions" href="#v3-functions">§</a> V3 Functions</h3>
 <!-- v3.new -->
