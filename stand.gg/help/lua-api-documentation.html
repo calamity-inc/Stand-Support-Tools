@@ -798,6 +798,7 @@ end)</code></pre>
 <!-- entities.delete -->
 <h5><i class="text-success">void</i> entities.<span class="text-primary">delete</span>(<i class="text-success">int</i> <i class="text-warning">handle_or_ptr</i>)</h5>
 <p>This will handle control requests on its own, and force deletion locally if control cannot be obtained.</p>
+<p>Note that deleting some entities causes other entities to get deleted as well (e.g. deleting weapons deletes their attachments) which can be problematic if you're iterating over entity pointers to delete them as some of the subsequent pointers can go stale. Handles don't have this issue because they get invalidated when the respective entity is deleted.</p>
 <!-- entities.get_model_hash -->
 <h5><i class="text-success">int</i> entities.<span class="text-primary">get_model_hash</span>(<i class="text-success">int</i> <i class="text-warning">handle_or_ptr</i>)</h5>
 <!-- entities.get_position -->
