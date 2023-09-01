@@ -1485,7 +1485,7 @@ end</code></pre>
 <!-- async_http.have_access -->
 <h5><i class="text-success">bool</i> async_http.<span class="text-primary">have_access</span>()</h5>
 <!-- async_http.init -->
-<h5><i class="text-success">void</i> async_http.<span class="text-primary">init</span>(<i class="text-success">string</i> <i class="text-warning">host</i>, <i class="text-success">string</i> <i class="text-warning">path</i>, <i class="text-success">?function</i> <i class="text-warning">success_func</i> = <span class="text-danger">nil</span>, <i class="text-success">?function</i> <i class="text-warning">fail_func</i> = <span class="text-danger">nil</span>)</h5>
+<h5><i class="text-success">void</i> async_http.<span class="text-primary">init</span>(<i class="text-success">string</i> <i class="text-warning">host</i>, <i class="text-success">string</i> <i class="text-warning">?path</i> = <span class="text-danger">nil</span>, <i class="text-success">?function</i> <i class="text-warning">success_func</i> = <span class="text-danger">nil</span>, <i class="text-success">?function</i> <i class="text-warning">fail_func</i> = <span class="text-danger">nil</span>)</h5>
 <p>This will make a GET request unless you use <code>async_http.set_post</code> before calling <code>async_http.dispatch</code>.</p>
 <p>On success, your <code>success_func</code> will be called with <code>body, header_fields, status_code</code>, if your script is still alive when the request finishes; the lifetimes are independent.</p>
 <!-- async_http.dispatch -->
@@ -1501,6 +1501,8 @@ end</code></pre>
 </ul>
 <!-- async_http.add_header -->
 <h5><i class="text-success">void</i> async_http.<span class="text-primary">add_header</span>(<i class="text-success">string</i> <i class="text-warning">key</i>, <i class="text-success">string</i> <i class="text-warning">value</i>)</h5>
+<!-- async_http.set_method -->
+<h5><i class="text-success">void</i> async_http.<span class="text-primary">set_method</span>(<i class="text-success">string</i> <i class="text-warning">method</i>)</h5>
 
 <h3><a name="memory-functions" href="#memory-functions">§</a> Memory Functions</h3>
 <!-- memory.script_global -->
