@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="https://rawcdn.githack.com/Sainan/prismjs-monokai/f74d1d07b4e109a02a9b9d309e567bf2d068bd9c/src/monokai.css">
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
-    <script src="https://rawcdn.githack.com/PlutoLang/plutolang.github.io/562ded934f2e7703bab35256d1dc21ee146c1ba1/src/theme/pluto.js"></script>
+    <script src="https://rawcdn.githack.com/PlutoLang/plutolang.github.io/55039128eddbf73f4c578a9122e1ccdd01f76071/src/theme/pluto.js"></script>
 </head>
 <body class="dark-mode">
     <div class="page-wrapper with-navbar">
@@ -171,7 +171,7 @@
 <p>Returns a reference to the list that your script gets when it is started.</p>
 <!-- menu.player_root -->
 <h5><i class="text-success">CommandRef</i> menu.<span class="text-primary">player_root</span>(<i class="text-success">int</i> <i class="text-warning">player_id</i>)</h5>
-<p>Returns a reference to the list that the given player owns.</p>
+<p>Returns a reference to the list that the given player owns. Note that the returned reference may be invalid even if called in an on_join handler.</p>
 <!-- menu.shadow_root -->
 <h5><i class="text-success">CommandRef</i> menu.<span class="text-primary">shadow_root</span>()</h5>
 <p>Using return value of this function to create a command produces a detached commmand (CommandUniqPtr) instead of a CommandRef.</p>
@@ -302,9 +302,9 @@ end)</code></pre>
 <!-- menu.attach -->
 <h5><i class="text-success">CommandRef</i> menu.<span class="text-primary">attach</span>(<i class="text-success">CommandRef</i> <i class="text-warning">parent</i>, <i class="text-success">CommandUniqPtr</i> <i class="text-warning">command</i>)</h5>
 <!-- menu.attach_after -->
-<h5><i class="text-success">CommandRef</i> menu.<span class="text-primary">attach_after</span>(<i class="text-success">CommandRef</i> <i class="text-warning">anchor</i>, <i class="text-success">CommandUniqPtr</i> <i class="text-warning">command</i>)</h5>
+<h5><i class="text-success">CommandRef</i> menu.<span class="text-primary">attach_after</span>(<i class="text-success">CommandRef|CommandUniqPtr</i> <i class="text-warning">anchor</i>, <i class="text-success">CommandUniqPtr</i> <i class="text-warning">command</i>)</h5>
 <!-- menu.attach_before -->
-<h5><i class="text-success">CommandRef</i> menu.<span class="text-primary">attach_before</span>(<i class="text-success">CommandRef</i> <i class="text-warning">anchor</i>, <i class="text-success">CommandUniqPtr</i> <i class="text-warning">command</i>)</h5>
+<h5><i class="text-success">CommandRef</i> menu.<span class="text-primary">attach_before</span>(<i class="text-success">CommandRef|CommandUniqPtr</i> <i class="text-warning">anchor</i>, <i class="text-success">CommandUniqPtr</i> <i class="text-warning">command</i>)</h5>
 <!-- menu.is_ref_valid -->
 <h5><i class="text-success">bool</i> menu.<span class="text-primary">is_ref_valid</span>(<i class="text-success">CommandRef</i> <i class="text-warning">ref</i>)</h5>
 <p>Returns if the referenced command still exists.</p>
@@ -683,6 +683,8 @@ end)</code></pre>
 <!-- players.get_vehicle_model -->
 <h5><i class="text-success">int</i> players.<span class="text-primary">get_vehicle_model</span>(<i class="text-success">int</i> <i class="text-warning">player_id</i>)</h5>
 <p>Works at all distances, but best when the user is close to them.</p>
+<!-- players.is_using_rc_vehicle -->
+<h5><i class="text-success">bool</i> players.<span class="text-primary">is_using_rc_vehicle</span>(<i class="text-success">int</i> <i class="text-warning">player_id</i>)</h5>
 <!-- players.get_bounty -->
 <h5><i class="text-success">?int</i> players.<span class="text-primary">get_bounty</span>(<i class="text-success">int</i> <i class="text-warning">player_id</i>)</h5>
 <p>Returns the value of the player's bounty or nil.</p>
@@ -877,6 +879,8 @@ end)</code></pre>
 <h5><i class="text-success">void</i> entities.<span class="text-primary">detach_wheel</span>(<i class="text-success">int</i> <i class="text-warning">handle_or_ptr</i>, <i class="text-success">int</i> <i class="text-warning">wheel_index</i>)</h5>
 <!-- entities.is_player_ped -->
 <h5><i class="text-success">bool</i> entities.<span class="text-primary">is_player_ped</span>(<i class="text-success">int</i> <i class="text-warning">handle_or_ptr</i>)</h5>
+<h5><i class="text-success">bool</i> entities.<span class="text-primary">request_control</span>(<i class="text-success">int</i> <i class="text-warning">handle_or_ptr</i>, <i class="text-success">int</i> <i class="text-warning">timeout</i> = <span class="text-danger">2000</span>)</h5>
+This internally calls <code>util.yield</code>. Returns <code>false</code> if control could not be attained within <code>timeout</code>.
 
 <h3><a name="chat-functions" href="#chat-functions">§</a> Chat Functions</h3>
 <!-- chat.on_message -->
@@ -914,6 +918,17 @@ end)</code></pre>
 <h5><i class="text-success">void</i> chat.<span class="text-primary">add_to_draft</span>(<i class="text-success">string</i> <i class="text-warning">appendix</i>)</h5>
 <!-- chat.remove_from_draft -->
 <h5><i class="text-success">void</i> chat.<span class="text-primary">remove_from_draft</span>(<i class="text-success">int</i> <i class="text-warning">characters</i>)</h5>
+<!-- chat.get_history -->
+<h5><i class="text-success">table&lt;int, table&lt;string, any&gt;&gt;</i> chat.<span class="text-primary">chat.get_history</span>()</h5>
+<pre><code class="language-pluto">util.create_tick_handler(function()
+    for chat.get_history() as msg do
+        local str = msg.sender_name.." ["..(msg.team_chat ? "TEAM" : "ALL")..(msg.is_auto ? ", AUTO" : "").."] "..msg.contents
+        if msg.time ~= 0 then
+            str = "["..os.date('%H:%M:%S', msg.time).."] "..str
+        end
+        util.draw_debug_text(str)
+    end
+end)</code></pre>
 
 <h3><a name="directx-functions" href="#directx-functions">§</a> DirectX Functions</h3>
 <p>Any X and Y value must be between 0.0 to 1.0.</p>
@@ -1325,6 +1340,10 @@ util.create_tick_handler(function()
         util.draw_debug_text("Off-screen!")
     end
 end)</code></pre>
+<!-- util.utf8_to_utf16 -->
+<h5><i class="text-success">string</i> util.<span class="text-primary">utf8_to_utf16</span>(<i class="text-success">string</i> <i class="text-warning">utf8</i>)</h5>
+<!-- util.utf16_to_utf8 -->
+<h5><i class="text-success">string</i> util.<span class="text-primary">utf16_to_utf8</span>(<i class="text-success">string</i> <i class="text-warning">utf16</i>)</h5>
 
 <h3><a name="v3-functions" href="#v3-functions">§</a> V3 Functions</h3>
 <!-- v3.new -->
