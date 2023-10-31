@@ -160,10 +160,6 @@
 <p>A <i class="text-success">bool</i> indicating if your script was started in direct response to a user action.</p>
 <h5 class="text-danger">SCRIPT_SILENT_START</h5>
 <p>A <i class="text-success">bool</i> indicating if a silent start of your script is desired.</p>
-<h5 class="text-danger">SCRIPT_SILENT_STOP</h5>
-<p>A <i class="text-success">bool</i> indicating if a silent stop of your script is desired.</p>
-<h5 class="text-danger">SCRIPT_CAN_CONTINUE</h5>
-<p>A <i class="text-success">bool</i> that remains true until your script is being stopped. You generally won't need to check against this as the runtime will handle the stop process, but in special situations like execute_in_os_thread, you might like to check against this to see if you want to continue with an expensive operation.</p>
 
 <h3><a name="menu-functions" href="#menu-functions">§</a> Menu Functions</h3>
 <!-- menu.my_root -->
@@ -531,6 +527,11 @@ end)</code></pre>
             <th><code>brand</code></th>
             <td><code>"Stand"</code></td>
             <td><code>"Stand"</code></td>
+        </tr>
+        <tr>
+            <th><code>game</code></th>
+            <td><code>"1.67-3028"</code></td>
+            <td><code>"1.67-3028"</code></td>
         </tr>
     </tbody>
 </table>
@@ -1017,6 +1018,10 @@ end)</code></pre>
     util.yield()
 end</code></pre>
 <p>For simple loops, you should prefer <code>util.create_tick_handler</code>.</p>
+<!-- util.can_continue -->
+<h5><i class="text-success">bool, ?bool</i> util.<span class="text-primary">can_continue</span>()</h5>
+<p>Remains true until your script is being stopped. You generally won't need to check against this as the runtime will handle the stop process, but in special situations like execute_in_os_thread, you might like to check against this to see if you want to continue with an expensive operation.</p>
+<p>If the first bool is false, the second bool indicates if a silent stop of your script is desired.</p>
 <!-- util.set_busy -->
 <h5><i class="text-success">void</i> util.<span class="text-primary">set_busy</span>(<i class="text-success">bool</i> <i class="text-warning">busy</i>)</h5>
 <!-- util.create_thread -->
