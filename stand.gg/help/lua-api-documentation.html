@@ -647,6 +647,8 @@ end)</code></pre>
 <h5><i class="text-success">bool</i> players.<span class="text-primary">is_marked_as_attacker</span>(<i class="text-success">int</i> <i class="text-warning">player_id</i>)</h5>
 <!-- players.is_otr -->
 <h5><i class="text-success">bool</i> players.<span class="text-primary">is_otr</span>(<i class="text-success">int</i> <i class="text-warning">player_id</i>)</h5>
+<!-- players.is_out_of_sight -->
+<h5><i class="text-success">bool</i> players.<span class="text-primary">is_out_of_sight</span>(<i class="text-success">int</i> <i class="text-warning">player_id</i>)</h5>
 <!-- players.is_in_interior -->
 <h5><i class="text-success">bool</i> players.<span class="text-primary">is_in_interior</span>(<i class="text-success">int</i> <i class="text-warning">player_id</i>)</h5>
 <!-- players.is_typing -->
@@ -1019,9 +1021,9 @@ end)</code></pre>
 end</code></pre>
 <p>For simple loops, you should prefer <code>util.create_tick_handler</code>.</p>
 <!-- util.can_continue -->
-<h5><i class="text-success">bool, ?bool</i> util.<span class="text-primary">can_continue</span>()</h5>
-<p>Remains true until your script is being stopped. You generally won't need to check against this as the runtime will handle the stop process, but in special situations like execute_in_os_thread, you might like to check against this to see if you want to continue with an expensive operation.</p>
-<p>If the first bool is false, the second bool indicates if a silent stop of your script is desired.</p>
+<h5><i class="text-success">bool, bool</i> util.<span class="text-primary">can_continue</span>()</h5>
+<p>The first bool remains true until your script is being stopped. You generally won't need to check against this as the runtime will handle the stop process, but in special situations like execute_in_os_thread, you might like to check against this to see if you want to continue with an expensive operation.</p>
+<p>The second bool indicates if a silent stop of your script has been requested.</p>
 <!-- util.set_busy -->
 <h5><i class="text-success">void</i> util.<span class="text-primary">set_busy</span>(<i class="text-success">bool</i> <i class="text-warning">busy</i>)</h5>
 <!-- util.create_thread -->
