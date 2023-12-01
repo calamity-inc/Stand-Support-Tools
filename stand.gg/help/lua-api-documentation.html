@@ -898,6 +898,7 @@ end)</code></pre>
 <!-- chat.send_message -->
 <h5><i class="text-success">void</i> chat.<span class="text-primary">send_message</span>(<i class="text-success">string</i> <i class="text-warning">text</i>, <i class="text-success">bool</i> <i class="text-warning">team_chat</i>, <i class="text-success">bool</i> <i class="text-warning">add_to_local_history</i>, <i class="text-success">bool</i> <i class="text-warning">networked</i>)</h5>
 <p>As you might be aware, messages have a limit of 140 UTF-16 characters. However, that is only true for the normal input, as you can use up to 254 UTF-8 characters over the network, and many more for the local history.</p>
+<p>Like all chat messages sent via Stand, the text may have the following sequences replaced: <code>${nl}</code>, <code>${name}</code>, <code>${ip}</code>, <code>${geoip.isp}</code>, <code>${geoip.country}</code>, <code>${geoip.region}</code>, <code>${geoip.city}</code></p>
 <!-- chat.send_targeted_message -->
 <h5><i class="text-success">void</i> chat.<span class="text-primary">send_targeted_message</span>(<i class="text-success">int</i> <i class="text-warning">recipient</i>, <i class="text-success">int</i> <i class="text-warning">sender</i>, <i class="text-success">string</i> <i class="text-warning">text</i>, <i class="text-success">bool</i> <i class="text-warning">team_chat</i>)</h5>
 <p><code>sender</code> will only be respected when <code>recipient == players.user()</code>, otherwise <code>sender</code> will be forced to <code>players.user()</code>.</p>
@@ -1354,6 +1355,11 @@ end)</code></pre>
 <h5><i class="text-success">string</i> util.<span class="text-primary">utf8_to_utf16</span>(<i class="text-success">string</i> <i class="text-warning">utf8</i>)</h5>
 <!-- util.utf16_to_utf8 -->
 <h5><i class="text-success">string</i> util.<span class="text-primary">utf16_to_utf8</span>(<i class="text-success">string</i> <i class="text-warning">utf16</i>)</h5>
+<!-- util.get_gps_route -->
+<h5><i class="text-success">table&lt;int, table&gt;, bool</i> util.<span class="text-primary">get_gps_route</span>(<i class="text-success">int</i> <i class="text-warning">slot</i>)</h5>
+<p>Gets the GPS route information for the given slot. Slot 0 is waypoint.</p>
+<p>The first return value is an index-based table of tables. Each inner table contains <code>x</code>, <code>y</code>, <code>z</code> and <code>junction</code>. Junction nodes should be ignored when drawing a line to avoid jaggedness.</p>
+<p>The second return value indicates if the route is partial.</p>
 
 <h3><a name="v3-functions" href="#v3-functions">§</a> V3 Functions</h3>
 <!-- v3.new -->
