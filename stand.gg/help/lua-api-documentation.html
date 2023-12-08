@@ -231,23 +231,23 @@
 <p>Note that the float variant is practically identical except the last 2 digits are indicated to be numbers after the decimal point.</p>
 <!-- menu.list_select -->
 <h5><i class="text-success">CommandRef|CommandUniqPtr</i> menu.<span class="text-primary">list_select</span>(<i class="text-success">CommandRef</i> <i class="text-warning">parent</i>, <i class="text-success">Label</i> <i class="text-warning">menu_name</i>, <i class="text-success">table&lt;any, string&gt;</i> <i class="text-warning">command_names</i>, <i class="text-success">Label</i> <i class="text-warning">help_text</i>, <i class="text-success">table&lt;int, table&gt;</i> <i class="text-warning">options</i>, <i class="text-success">int</i> <i class="text-warning">default_value</i>, <i class="text-success">function</i> <i class="text-warning">on_change</i>)</h5>
-<p><code>options</code> must be table of list action item data or Label. List action item data is an index-based table that contains at least a Label (menu_name), and can optionally have command_names and help_text.</p>
+<p><code>options</code> must be table of list action item data. List action item data is an index-based table that contains value, menu_name, command_names, help_text, and category. Value and menu_name are mandatory.</p>
 <p>Your <code>on_change</code> function will be called with the option's index, the option's menu_name, the previous option's index, and click_type as parameters.</p>
 <pre><code class="language-pluto">menu.my_root():list_select("list_select", {}, "", {
-    [1] = {"Uno"},
-    [2] = {"Dos"},
-    [3] = {"Tres"},
+    {1, "Uno"},
+    {2, "Dos"},
+    {3, "Tres"},
 }, 1, function(value, menu_name, prev_value, click_type)
     util.toast("Value changed to " .. lang.get_localised(menu_name) .. " (" .. value .. ")")
 end)</code></pre>
 <!-- menu.list_action -->
 <h5><i class="text-success">CommandRef|CommandUniqPtr</i> menu.<span class="text-primary">list_action</span>(<i class="text-success">CommandRef</i> <i class="text-warning">parent</i>, <i class="text-success">Label</i> <i class="text-warning">menu_name</i>, <i class="text-success">table&lt;any, string&gt;</i> <i class="text-warning">command_names</i>, <i class="text-success">Label</i> <i class="text-warning">help_text</i>, <i class="text-success">table&lt;int, table&gt;</i> <i class="text-warning">options</i>, <i class="text-success">function</i> <i class="text-warning">on_item_click</i>)</h5>
-<p><code>options</code> must be table of list action item data or Label. List action item data is an index-based table that contains at least a Label (menu_name), and can optionally have command_names and help_text.</p>
+<p><code>options</code> must be table of list action item data. List action item data is an index-based table that contains value, menu_name, command_names, help_text, and category. Value and menu_name are mandatory.</p>
 <p>Your <code>on_item_click</code> function will be called with the option's index, the option's menu_name, and click_type as parameters.</p>
 <pre><code class="language-pluto">menu.my_root():list_action("list_action", {}, "", {
-    [1] = {"Uno"},
-    [2] = {"Dos"},
-    [3] = {"Tres"},
+    {1, "Uno"},
+    {2, "Dos"},
+    {3, "Tres"},
 }, function(value, menu_name, click_type)
     util.toast("Clicked on " .. lang.get_localised(menu_name) .. " (" .. value .. ")")
 end)</code></pre>
@@ -1401,6 +1401,18 @@ end)</code></pre>
 <!-- v3.div -->
 <h5><i class="text-success">userdata|int</i> v3.<span class="text-primary">div</span>(<i class="text-success">userdata|int</i> <i class="text-warning">a</i>, <i class="text-success">number</i> <i class="text-warning">f</i>)</h5>
 <p>Divides <code>a</code> by <code>f</code>. Returns <code>a</code>.</p>
+<!-- v3.addNew -->
+<h5><i class="text-success">userdata|int</i> v3.<span class="text-primary">addNew</span>(<i class="text-success">userdata|int</i> <i class="text-warning">a</i>, <i class="text-success">userdata|int</i> <i class="text-warning">b</i>)</h5>
+<p>Returns a new instance with the result of <code>a + b</code>.</p>
+<!-- v3.subNew -->
+<h5><i class="text-success">userdata|int</i> v3.<span class="text-primary">subNew</span>(<i class="text-success">userdata|int</i> <i class="text-warning">a</i>, <i class="text-success">userdata|int</i> <i class="text-warning">b</i>)</h5>
+<p>Returns a new instance with the result of <code>a - b</code>.</p>
+<!-- v3.mulNew -->
+<h5><i class="text-success">userdata|int</i> v3.<span class="text-primary">mulNew</span>(<i class="text-success">userdata|int</i> <i class="text-warning">a</i>, <i class="text-success">number</i> <i class="text-warning">f</i>)</h5>
+<p>Returns a new instance with the result of <code>a * f</code>.</p>
+<!-- v3.divNew -->
+<h5><i class="text-success">userdata|int</i> v3.<span class="text-primary">divNew</span>(<i class="text-success">userdata|int</i> <i class="text-warning">a</i>, <i class="text-success">number</i> <i class="text-warning">f</i>)</h5>
+<p>Returns a new instance with the result of <code>a / f</code>.</p>
 <!-- v3.eq -->
 <h5><i class="text-success">bool</i> v3.<span class="text-primary">eq</span>(<i class="text-success">userdata|int</i> <i class="text-warning">a</i>, <i class="text-success">userdata|int</i> <i class="text-warning">b</i>)</h5>
 <!-- v3.magnitude -->
