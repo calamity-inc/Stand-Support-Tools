@@ -232,7 +232,7 @@
 <!-- menu.list_select -->
 <h5><i class="text-success">CommandRef|CommandUniqPtr</i> menu.<span class="text-primary">list_select</span>(<i class="text-success">CommandRef</i> <i class="text-warning">parent</i>, <i class="text-success">Label</i> <i class="text-warning">menu_name</i>, <i class="text-success">table&lt;any, string&gt;</i> <i class="text-warning">command_names</i>, <i class="text-success">Label</i> <i class="text-warning">help_text</i>, <i class="text-success">table&lt;int, table&gt;</i> <i class="text-warning">options</i>, <i class="text-success">int</i> <i class="text-warning">default_value</i>, <i class="text-success">function</i> <i class="text-warning">on_change</i>)</h5>
 <p><code>options</code> must be table of list action item data. List action item data is an index-based table that contains value, menu_name, command_names, help_text, and category. Value and menu_name are mandatory.</p>
-<p>Your <code>on_change</code> function will be called with the option's index, the option's menu_name, the previous option's index, and click_type as parameters.</p>
+<p>Your <code>on_change</code> function will be called with the option's value, the option's menu_name, the previous option's value, and click_type as parameters.</p>
 <pre><code class="language-pluto">menu.my_root():list_select("list_select", {}, "", {
     {1, "Uno"},
     {2, "Dos"},
@@ -243,7 +243,7 @@ end)</code></pre>
 <!-- menu.list_action -->
 <h5><i class="text-success">CommandRef|CommandUniqPtr</i> menu.<span class="text-primary">list_action</span>(<i class="text-success">CommandRef</i> <i class="text-warning">parent</i>, <i class="text-success">Label</i> <i class="text-warning">menu_name</i>, <i class="text-success">table&lt;any, string&gt;</i> <i class="text-warning">command_names</i>, <i class="text-success">Label</i> <i class="text-warning">help_text</i>, <i class="text-success">table&lt;int, table&gt;</i> <i class="text-warning">options</i>, <i class="text-success">function</i> <i class="text-warning">on_item_click</i>)</h5>
 <p><code>options</code> must be table of list action item data. List action item data is an index-based table that contains value, menu_name, command_names, help_text, and category. Value and menu_name are mandatory.</p>
-<p>Your <code>on_item_click</code> function will be called with the option's index, the option's menu_name, and click_type as parameters.</p>
+<p>Your <code>on_item_click</code> function will be called with the option's value, the option's menu_name, and click_type as parameters.</p>
 <pre><code class="language-pluto">menu.my_root():list_action("list_action", {}, "", {
     {1, "Uno"},
     {2, "Dos"},
