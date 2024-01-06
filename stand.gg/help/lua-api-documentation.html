@@ -943,8 +943,12 @@ end)</code></pre>
 <!-- directx.create_texture -->
 <h5><i class="text-success">int</i> directx.<span class="text-primary">create_texture</span>(<i class="text-success">string</i> <i class="text-warning">path</i>)</h5>
 <p>An absolute path is recommended, e.g. by using <code>filesystem.resources_dir()</code>.</p>
-<!-- directx.draw_texture -->
+<!-- directx.draw_texture(9/12) -->
 <h5><i class="text-success">void</i> directx.<span class="text-primary">draw_texture</span>(<i class="text-success">int</i> <i class="text-warning">id</i>, <i class="text-success">number</i> <i class="text-warning">sizeX</i>, <i class="text-success">number</i> <i class="text-warning">sizeY</i>, <i class="text-success">number</i> <i class="text-warning">centerX</i>, <i class="text-success">number</i> <i class="text-warning">centerY</i>, <i class="text-success">number</i> <i class="text-warning">posX</i>, <i class="text-success">number</i> <i class="text-warning">posY</i>, <i class="text-success">number</i> <i class="text-warning">rotation</i>, <i class="text-success">Colour</i> <i class="text-warning">colour</i>)</h5>
+<p>Draws the given texture this tick if it has loaded.</p>
+<!-- directx.draw_texture(13/16) -->
+<h5><i class="text-success">void</i> directx.<span class="text-primary">draw_texture</span>(<i class="text-success">int</i> <i class="text-warning">id</i>, <i class="text-success">any</i> <i class="text-warning">reserved1</i>, <i class="text-success">any</i> <i class="text-warning">reserved2</i>, <i class="text-success">int</i> <i class="text-warning">ms</i>, <i class="text-success">number</i> <i class="text-warning">sizeX</i>, <i class="text-success">number</i> <i class="text-warning">sizeY</i>, <i class="text-success">number</i> <i class="text-warning">centerX</i>, <i class="text-success">number</i> <i class="text-warning">centerY</i>, <i class="text-success">number</i> <i class="text-warning">posX</i>, <i class="text-success">number</i> <i class="text-warning">posY</i>, <i class="text-success">number</i> <i class="text-warning">rotation</i>, <i class="text-success">Colour</i> <i class="text-warning">colour</i>)</h5>
+<p>Draws the given texture for <code>ms</code> milliseconds. Note that the texture may not appear immediately if it's still loading.</p>
 <!-- directx.create_font -->
 <h5><i class="text-success">userdata</i> directx.<span class="text-primary">create_font</span>(<i class="text-success">string</i> <i class="text-warning">path</i>)</h5>
 <!-- directx.draw_text -->
